@@ -52,19 +52,19 @@ access.
 
 ssh user@raspberry_ip
 
-##Step 2 — Network Connectivity Check
+## Step 2 — Network Connectivity Check
 
 Internet connectivity was verified by sending ICMP packets to a public
 DNS server before continuing with the configuration.
 ping -c 3 8.8.8.8
 
-##Step 3 — Identify Local IP Address
+## Step 3 — Identify Local IP Address
 
 The current IP address assigned to the Raspberry Pi was obtained for
 proper identification within the local network.
 hostname -I
 
-##Step 4 — IP Assignment Method
+## Step 4 — IP Assignment Method
 
 Network configuration was reviewed using:
 ip route
@@ -73,7 +73,7 @@ cat /etc/dhcpcd.conf
 A static IP configuration was found for the wlan0 interface, although
 the active IP was still assigned via DHCP.
 
-##Step 5 — Applying Static IP
+## Step 5 — Applying Static IP
 
 After updating the network configuration, SSH access was restored using
 the new static IP.
@@ -88,7 +88,7 @@ SSH requested confirmation of a new host fingerprint due to the IP
 change, which was validated successfully.
 
 
-##Step 6 — Pi-hole Installation
+## Step 6 — Pi-hole Installation
 
 Pi-hole was successfully installed on the Raspberry Pi.
 
@@ -102,14 +102,14 @@ Initial web credentials generated
 
 Web admin interface enabled
 
-##Step 7 — Issue Encountered: 403 Error and Port Conflict
+## Step 7 — Issue Encountered: 403 Error and Port Conflict
 
 When attempting to access the Pi-hole web dashboard, the browser
 consistently returned a 403 error.
 
 System logs were analyzed in real time using: journalctl -f
 
-##Diagnosis
+## Diagnosis
 
 Logs showed that the lighttpd web server was attempting to bind to
 port 80, which was already in use.
@@ -123,7 +123,7 @@ systemd to restart the service
 
 an infinite restart loop
 
-##Identifying the Port Conflict
+## Identifying the Port Conflict
 
 To identify which process was using port 80, the following command was
 executed: sudo ss -tulpn | grep :80
@@ -137,7 +137,7 @@ lighttpd attempted to use the same port
 Port conflict
 lighttpd restart loop
 
-##Resolution
+## Resolution
 
 The solution was to move the web server to a different port.
 
@@ -167,7 +167,7 @@ An attempt was made to connect two routers via Ethernet. However, the
 Huawei B311-221 is a 4G/LTE router where the Ethernet port functions only
 as LAN, not as a true WAN port.
 
-This means:
+## This means:
 
 Internet access is provided only via mobile network
 
@@ -184,7 +184,7 @@ Accepted
 As a workaround, Pi-hole was deployed at host level, and DNS filtering
 functionality was validated successfully
 
-##Final Result
+## Final Result
 
 Pi-hole fully operational
 
@@ -199,7 +199,7 @@ Consistent blocking percentage
 The system works correctly within the constraints of the available
 network hardware.
 
-##Key Learnings
+## Key Learnings
 
 Practical DNS operation
 
@@ -215,7 +215,7 @@ Understanding real hardware and network limitations
 
 Solving non-ideal, real-world IT problems
 
-##Future Improvements
+## Future Improvements
 
 Deploy Pi-hole at full router level to enforce DNS filtering across
 the entire network
