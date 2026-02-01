@@ -31,7 +31,7 @@ steps, and technical decisions made during the implementation.
 ---
 
 ## DNS Flow Overview
-![DNS Flow Overview](images/dnsworkflow.png)
+![DNS Flow Overview](DnsWorkFlow.png)
 
 ---
 ## Environment & Tools
@@ -195,7 +195,7 @@ Real DNS traffic visible
 Multiple active clients
 
 Consistent blocking percentage
-![Pi-hole Dashboard](images/dashboard.png)
+![Pi-hole Dashboard](Pi-hole Dashboard.png)
 
 The system works correctly within the constraints of the available
 network hardware.
