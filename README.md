@@ -160,6 +160,7 @@ Pi-hole running on port 80
 lighttpd running on port 8080
 
 Pi-hole dashboard accessible and working
+![Pi-hole Dashboard](Pi-hole Dashboard.png)
 
 ##Router Connectivity Limitation
 
